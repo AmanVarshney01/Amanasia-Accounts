@@ -1,0 +1,13 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block home %}
+    <div class="delete-container">
+        <form  method="post" class="delete-box">
+            {% csrf_token %}
+            <h1>Are you sure?</h1>
+            <input  type="submit"  value="Yes">
+        </form>
+        <button onclick="goBack()"><img src="{% static 'accounts/back.svg' %}" alt="back"></button>
+    </div>
+{% endblock %}

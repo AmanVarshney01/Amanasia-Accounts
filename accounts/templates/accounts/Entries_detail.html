@@ -1,0 +1,25 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block home %}
+    <div class="entries-form">
+        <div><h2>Purchaser Name</h2>{{ object.purchaser_name }}</div>
+        <div><h2>Purchaser Address</h2>{{ object.purchaser_address }}</div>
+        <div><h2>GSTIN no.</h2>{{ object.gstin_no }}</div>
+        <div><h2>Description</h2>{{ object.description }}</div>
+        <div><h2>HSN Code</h2>{{ object.hsn_code }}</div>
+        <div><h2>Quantity</h2>{{ object.quantity }}</div>
+        <div><h2>Rate</h2>{{ object.rate }}</div>
+        <div><h2>Texable Value</h2>{{ object.taxable_value }}</div>
+        <div><h2>Packaging</h2>{{ object.packaging }}</div>
+        <div><h2>Total Amount Before Tax</h2>{{ object.total_amount_before_tax }}</div>
+        <div><h2>CGST</h2>{{ object.cgst }}</div>
+        <div><h2>SGST</h2>{{ object.sgst }}</div>
+        <div><h2>Total Amount After Tax</h2>{{ object.total_amount_after_tax }}</div>
+        <button onclick="goBack()"><img src="{% static 'accounts/back.svg' %}" alt="back"></button>
+    </div>
+    <div class="date">{{ object.date }}</div>
+    <script>
+        console.log('hello')
+    </script>
+{% endblock %}

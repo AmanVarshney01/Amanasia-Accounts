@@ -1,0 +1,45 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block home %}
+
+    <header>
+        <h1>Amanasia Accounts</h1>
+    </header>
+    <nav>
+        <a class="excel-download" href="{% url 'excel' %}">Download Excel</a>
+        <a href="{% url 'Entries_create' %}">ADD</a>
+    </nav>
+    <div class="accounts-container">
+        <div class="entry-list">
+            <h2 class="list-heading">Purchaser Name</h2>
+            <h2 class="list-heading">Quantity</h2>
+            <h2 class="list-heading">Total Amount</h2>
+        </div>
+        {% for entry in object_list %}
+            <div class="entry-list">
+{#                <a href="{% url 'Entries_detail' entry.id %}" class="entry-list">#}
+                <div class="list-item">
+                    <h3>{{ entry.purchaser_name}}</h3>
+                </div>
+                <div class="list-item">
+                    <h4>{{ entry.quantity }}</h4>
+                </div>
+                <div class="list-item">
+                    <h4>{{ entry.total_amount_after_tax }}</h4>
+                </div>
+                <div>
+                    <a href="{% url 'Entries_delete' entry.id %}" class="icon"><img src="{% static 'accounts/delete.svg' %}" alt=""></a>
+                </div>
+                <div>
+                    <a href="{% url 'Entries_update' entry.id %}" class="icon"><img src="{% static 'accounts/edit.svg' %}" alt=""></a>
+                </div>
+                <div>
+                    <a href="{% url 'Entries_detail' entry.id %}" class="icon"><img src="{% static 'accounts/info.svg' %}" alt=""></a>
+                </div>
+{#                </a>#}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

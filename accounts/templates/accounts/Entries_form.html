@@ -1,0 +1,23 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block home %}
+    <form method="post" class="entries-form">
+        {% csrf_token %}
+        <div><label for="id_purchaser_name">Purchaser Name</label>{{ form.purchaser_name }}</div>
+        <div><label for="id_purchaser_address">Purchaser Address</label>{{ form.purchaser_address }}</div>
+        <div><label for="id_gstin_no">GSTIN no.</label>{{ form.gstin_no }}</div>
+        <div><label for="id_description">Description</label>{{ form.description }}</div>
+        <div><label for="id_hsn_code">HSN Code</label>{{ form.hsn_code }}</div>
+        <div><label for="id_quantity">Quantity</label>{{ form.quantity }}</div>
+        <div><label for="id_rate">Rate</label>{{ form.rate }}</div>
+        <div><label for="id_taxable_value">Texable Value</label>{{ form.taxable_value }}</div>
+        <div><label for="id_packaging">Packaging</label>{{ form.packaging }}</div>
+        <div><label for="id_total_amount_before_tax">Total Amount Before Tax</label>{{ form.total_amount_before_tax }}</div>
+        <div><label for="id_cgst">CGST</label>{{ form.cgst }}</div>
+        <div><label for="id_sgst">SGST</label>{{ form.sgst }}</div>
+        <div><label for="id_purchaser_name">Total Amount After Tax</label>{{ form.total_amount_after_tax }}</div>
+        <input class="button" type="submit" value="Submit">
+        <button onclick="goBack()"><img src="{% static 'accounts/back.svg' %}" alt=""></button>
+    </form>
+{% endblock %}
